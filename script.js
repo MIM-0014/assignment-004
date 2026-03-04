@@ -106,6 +106,18 @@ jobContainer.addEventListener("click", function (e) {
   }
 
   renderJobs();
+
 });
+// UPDATE DASHBOARD
+function updateDashboard() {
+
+  const availableJobs = jobs.filter(j => j.status === "all").length;
+  const interviewJobs = jobs.filter(j => j.status === "interview").length;
+  const rejectedJobs = jobs.filter(j => j.status === "rejected").length;
+
+  totalCount.innerText = availableJobs;
+  interviewCount.innerText = interviewJobs;
+  rejectedCount.innerText = rejectedJobs;
+}
 //  INITIAL LOAD 
 renderJobs();
