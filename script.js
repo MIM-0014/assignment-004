@@ -84,3 +84,26 @@ document.querySelectorAll(".tabBtn").forEach(button => {
     renderJobs();
   });
 });
+// ================= EVENT DELEGATION =================
+jobContainer.addEventListener("click", function (e) {
+
+  const id = Number(e.target.dataset.id);
+  const job = jobs.find(j => j.id === id);
+
+  if (!job) return;
+
+  if (e.target.classList.contains("interviewBtn")) {
+    job.status = job.status === "interview" ? "all" : "interview";
+  }
+
+  if (e.target.classList.contains("rejectBtn")) {
+    job.status = job.status === "rejected" ? "all" : "rejected";
+  }
+
+  if (e.target.classList.contains("deleteBtn")) {
+    const index = jobs.findIndex(j => j.id === id);
+    jobs.splice(index, 1);
+  }
+
+  renderJobs();
+});
