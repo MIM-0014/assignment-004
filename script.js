@@ -1,4 +1,4 @@
-// ================= JOB DATA =================
+//  JOB DATA 
 const jobs = [
   { id: 1, companyName: "Google", position: "Frontend Developer", location: "Remote", type: "Full-Time", salary: "$120k/year", description: "Develop scalable user interfaces for global products.", status: "all" },
   { id: 2, companyName: "Microsoft", position: "Backend Engineer", location: "USA", type: "Full-Time", salary: "$130k/year", description: "Build secure and scalable cloud APIs.", status: "all" },
@@ -18,6 +18,7 @@ const totalCount = document.getElementById("totalCount");
 const interviewCount = document.getElementById("interviewCount");
 const rejectedCount = document.getElementById("rejectedCount");
 const tabCount = document.getElementById("tabCount");
+//RENDER FUNCTION 
 function renderJobs() {
 
   jobContainer.innerHTML = "";
@@ -66,3 +67,20 @@ function renderJobs() {
 
   updateDashboard();
 }
+// ================= TAB SWITCHING =================
+document.querySelectorAll(".tabBtn").forEach(button => {
+  button.addEventListener("click", function () {
+
+    currentTab = this.dataset.tab;
+
+    document.querySelectorAll(".tabBtn").forEach(btn => {
+      btn.classList.remove("bg-blue-500", "text-white");
+      btn.classList.add("bg-gray-200");
+    });
+
+    this.classList.remove("bg-gray-200");
+    this.classList.add("bg-blue-500", "text-white");
+
+    renderJobs();
+  });
+});
