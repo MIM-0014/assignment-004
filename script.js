@@ -67,7 +67,7 @@ function renderJobs() {
 
   updateDashboard();
 }
-// ================= TAB SWITCHING =================
+// TAB SWITCHING 
 document.querySelectorAll(".tabBtn").forEach(button => {
   button.addEventListener("click", function () {
 
@@ -84,7 +84,7 @@ document.querySelectorAll(".tabBtn").forEach(button => {
     renderJobs();
   });
 });
-// ================= EVENT DELEGATION =================
+//  EVENT DELEGATION 
 jobContainer.addEventListener("click", function (e) {
 
   const id = Number(e.target.dataset.id);
@@ -107,3 +107,5 @@ jobContainer.addEventListener("click", function (e) {
 
   renderJobs();
 });
+//  INITIAL LOAD 
+renderJobs();
